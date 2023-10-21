@@ -1,0 +1,23 @@
+name: try
+on:
+push:
+branches:
+- v[0-9]+.[0-9]
+
+jobs:
+ try:
+  runs-on: ubuntu-latest
+  steps:
+    - name: get date in Github
+
+      id: get_date_in_github
+
+      run: echo "date in github $(date)"
+
+   
+
+    - name: checkout my source
+
+      id: check_out_my_source
+
+      uses: actions/checkout@v4
