@@ -23,12 +23,11 @@ jobs:
 
             - name: Slack Notification
               uses: rtCamp/action-slack-notify@v2
-                env: 
+              env: 
                 SLACK_CHANNEL: cicd-workshop
                 SLACK_COLOR: ${{ job.status }} 
                 SLACK_TITLE: STUDENT-ID 123456
                 SLACK_TITLE: email 12356
                 SLACK_USERNAME: LIU SHIYU
-
                 SLACK_WEBHOOK: ${{ secrets.TRY}}
    
