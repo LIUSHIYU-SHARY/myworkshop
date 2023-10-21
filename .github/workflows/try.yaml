@@ -1,8 +1,8 @@
 name: try
 on:
-push:
-branches:
-- v[0-9]+.[0-9]
+    push:
+        branches:
+            - v[0-9]+.[0-9]
 
 jobs:
     try_workflow:
