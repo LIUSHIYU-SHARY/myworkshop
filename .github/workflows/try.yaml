@@ -25,9 +25,13 @@ jobs:
               uses: rtCamp/action-slack-notify@v2
               env: 
                 SLACK_CHANNEL: cicd-workshop
-                SLACK_COLOR: ${{ job.status }} 
-                SLACK_studentid: 123456
-                SLACK_email: 123456
+                SLACK_COLOR: ${{ job.status }}
                 SLACK_USERNAME: LIU SHIYU
                 SLACK_WEBHOOK: ${{ secrets.TRY}}
+              run:
+                messages=(
+                " 1 Title: Message 1 Content"
+                " 2 Title: Message 2 Content"
+                " 3 Title: Message 3 Content")
+        
    
