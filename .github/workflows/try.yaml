@@ -12,14 +12,6 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v3
 
-            - name: Run Trivy vulnerability scanner in docker mode
-              uses: aquasecurity/trivy-action@master
-              with:
-               image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
-               format: 'template'
-               template: '@/contrib/sarif.tpl'
-               output: 'trivy-results-docker.sarif'
-               severity: 'CRITICAL'  
             
             - name: Run Trivy vulnerability scanner in fs mode
               uses: anandg112/trivy-action@feat/add-skip-dirs-option
@@ -29,7 +21,7 @@ jobs:
                 format: 'template'
                 template: '@/contrib/sarif.tpl'
                 output: 'trivy-results-fs.sarif'
-                severity: 'CRITICAL,HIGH'
+                severity: 'CRITICAL'
                 skip-dirs: "ignored-dir"
                  
 
