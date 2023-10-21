@@ -28,11 +28,12 @@ jobs:
                 SLACK_COLOR: ${{ job.status }}
                 SLACK_USERNAME: LIU SHIYU
                 SLACK_WEBHOOK: ${{ secrets.TRY}}
-                SLACK_TITLE: message
-                SLACK_MESSAGE: 'ID :123456
-                email :123456
-                repository :link
-                docker :link'
+                SLACK_TITLE: Image build and signed
+                SLACK_MESSAGE: 
+                'ID :123456 '
+                'email :123456' 
+                'repository :link'
+                'docker :link'
            
         
    
