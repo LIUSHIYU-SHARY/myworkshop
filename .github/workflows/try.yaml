@@ -22,19 +22,6 @@ jobs:
                 output: 'trivy-results-fs.sarif'
                 severity: 'CRITICAL'
                 skip-dirs: "ignored-dir"
-                 
-
-            - uses: MeilCli/slack-upload-file@v3
-              with:
-               slack_token: ${{ secrets.SLACK_TOKEN }}
-               channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-               content: 'file content'
-               file_type: 'text'
-               file_name: 'text.txt'
-               title: 'title of file'
-               initial_comment: 'post by slack-upload-file'
-             
-
                
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v3
