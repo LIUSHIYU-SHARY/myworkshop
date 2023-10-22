@@ -30,6 +30,7 @@ jobs:
               SLACK_MESSAGE: |
                *NAME:*123456
                *ID:*123456
+              SLACK_WEBHOOK: ${{ secrets.TEST }}
 
           - name: Set up QEMU
             uses: docker/setup-qemu-action@v3
