@@ -27,9 +27,9 @@ jobs:
               SLACK_COLOR: ${{ job.status }}
               SLACK_USERNAME: LIU SHIYU
               SLACK_TITLE: Message
-              SLACK_MESSAGE:|
-              *NAME:*123456
-              *ID:*123456
+              SLACK_MESSAGE: |
+               *NAME:*123456
+               *ID:*123456
 
           - name: Set up QEMU
             uses: docker/setup-qemu-action@v3
