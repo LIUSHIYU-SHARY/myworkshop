@@ -28,8 +28,8 @@ jobs:
               SLACK_USERNAME: LIU SHIYU
               SLACK_TITLE: Message
               SLACK_MESSAGE: |
-                *NAME:* 1234567
-                *ID:* 1234567
+                NAME: 1234567
+                ID: 1234567
               SLACK_WEBHOOK: ${{ secrets.TEST }}
 
           - name: Set up QEMU
