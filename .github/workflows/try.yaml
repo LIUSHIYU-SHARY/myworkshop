@@ -27,7 +27,7 @@ jobs:
               SLACK_COLOR: ${{ job.status }}
               SLACK_USERNAME: LIU SHIYU
               SLACK_TITLE: Message
-              SLACK_MESSAGE: |
+              SLACK_MESSAGE:|
               *NAME:*123456
               *ID:*123456
 
