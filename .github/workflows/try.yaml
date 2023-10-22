@@ -19,6 +19,7 @@ jobs:
               format: 'table'
               exit-code: '1'
               output: 'trivy-results.sarif'
+              vuln-type: 'os,library'
               severity: 'CRITICAL'
                
           - name: Slack Notification
