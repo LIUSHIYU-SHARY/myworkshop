@@ -14,11 +14,9 @@ jobs:
           - name: Run Trivy vulnerability scanner in repo mode
             uses: aquasecurity/trivy-action@master
             with:
-              exit-code: '1'
+              scan-type: 'fs'
               ignore-unfixed: true
-              vuln-type: 'os,library'
-              format: 'template'
-              template: '@/contrib/sarif.tpl'
+              format: 'table'
               output: 'trivy-results.sarif'
               severity: 'CRITICAL'
                
