@@ -18,7 +18,7 @@ jobs:
               ignore-unfixed: true
               format: 'sarif'
               output: 'trivy-results.sarif'
-              severity: 'CRITICAL'
+              severity: 'CRITICAL,HIGH'
     
           - uses: MeilCli/slack-upload-file@v3
             with:
