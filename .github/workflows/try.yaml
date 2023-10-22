@@ -15,6 +15,8 @@ jobs:
             uses: aquasecurity/trivy-action@master
             with:
                 scan-type: 'fs'
+                scan-ref: '.'
+                trivy-config: try.yaml
                 ignore-unfixed: true
                 format: 'sarif '
                 output: 'trivy-results-fs.sarif'
