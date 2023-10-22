@@ -21,9 +21,9 @@ jobs:
               severity: 'CRITICAL'
     
           - name: Upload Trivy scan results to GitHub Security tab
-            uses: github/codeql-action/upload-sarif@v2
+            uses: github/codeql-action/upload-table@v2
             with:
-              sarif_file: 'trivy-results.sarif'
+              sarif_file: 'trivy-results.table'
           
           - name: Slack Notification
             uses: rtCamp/action-slack-notify@v2
