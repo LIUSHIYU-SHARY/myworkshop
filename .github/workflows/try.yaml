@@ -16,8 +16,8 @@ jobs:
             with:
               scan-type: 'fs'
               ignore-unfixed: true
-              format: 'sarif'
-              output: 'trivy-results.sarif'
+              format: 'table'
+              output: 'trivy-results.txt'
               severity: 'CRITICAL,HIGH'
     
           - uses: MeilCli/slack-upload-file@v3
