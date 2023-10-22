@@ -20,11 +20,13 @@ jobs:
               output: 'trivy-results.sarif'
               severity: 'CRITICAL'
     
-          - name: Upload Trivy scan results to GitHub Security tab
-            uses: github/codeql-action/upload-sarif@v2
+          - uses: MeilCli/slack-upload-file@v3
             with:
-              sarif_file: 'trivy-results.sarif'
-          
+              slack_token: ${{ secrets.SLACK_TOKEN }}
+              channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+              file_path: 'docs/*.txt'
+              initial_comment: 'post by slack-upload-file'
+
           - name: Slack Notification
             uses: rtCamp/action-slack-notify@v2
             env:
@@ -38,12 +40,7 @@ jobs:
                 *xxx:*xxx
               SLACK_WEBHOOK: ${{ secrets.TEST }}
 
-          - uses: MeilCli/slack-upload-file@v3
-            with:
-             slack_token: ${{ secrets.SLACK_TOKEN }}
-             channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-             file_path: 'docs/*.txt'
-             initial_comment: 'post by slack-upload-file'
+          
 
           - name: Set up QEMU
             uses: docker/setup-qemu-action@v3
