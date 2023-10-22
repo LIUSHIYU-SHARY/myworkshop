@@ -20,7 +20,7 @@ jobs:
               format: 'template'
               template: '@/contrib/sarif.tpl'
               output: 'trivy-results.sarif'
-              severity: 'CRITICAL,HIGH'
+              severity: 'CRITICAL'
                
           - name: Slack Notification
             uses: rtCamp/action-slack-notify@v2
