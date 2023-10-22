@@ -15,10 +15,11 @@ jobs:
             uses: aquasecurity/trivy-action@master
             with:
               scan-type: 'fs'
-              ignore-unfixed: true
-              format: 'table '
-              output: 'trivy-results.sarif'
-              severity: 'CRITICAL'
+                ignore-unfixed: true
+                format: 'sarif '
+                output: 'trivy-results-fs.sarif'
+                severity: 'CRITICAL'
+                skip-dirs: "ignored-dir"
                
           - name: Slack Notification
             uses: rtCamp/action-slack-notify@v2
