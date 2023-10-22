@@ -48,9 +48,3 @@ jobs:
               file_name: 'text.txt'
               title: 'title of file'
               initial_comment: 'post by slack-upload-file'
-
-
-           
-           
-        
-   
