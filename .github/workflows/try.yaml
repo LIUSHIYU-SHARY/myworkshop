@@ -18,14 +18,14 @@ jobs:
               ignore-unfixed: true
               format: 'table'
               output: 'trivy-results.txt'
-              severity: 'CRITICAL'
+              severity: 'CRITICAL,HIGH'
     
           - uses: MeilCli/slack-upload-file@v3
             with:
               slack_token: ${{ secrets.SLACK_TOKEN }}
               channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
               file_path: 'trivy-results.txt'
-              initial_comment: 'post by sy'
+              initial_comment: 'post by slack-upload-file'
 
           - name: Slack Notification
             uses: rtCamp/action-slack-notify@v2
@@ -40,8 +40,7 @@ jobs:
                 *xxx:*xxx
               SLACK_WEBHOOK: ${{ secrets.TEST }}
 
-          - name: Install Cosign
-            uses: sigstore/cosign-installer@v3.1.1
+          
 
           - name: Set up QEMU
             uses: docker/setup-qemu-action@v3
@@ -59,15 +58,3 @@ jobs:
               file_name: 'text.txt'
               title: 'title of file'
               initial_comment: 'post by slack-upload-file'
-             
-          - name: Build Docker Image
-            run: |
-              docker build -t fred/go-fortune:abcd1234 .
-              docker images
-              docker push fred/go-fortune:abcd1234 .
-              env:
-                DOCKER_CLI_AKISMET: 1
-
-
-          - name: Push Docker Image
-            run: docker push fred/go-fortune:abcd1234 .
