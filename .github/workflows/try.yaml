@@ -28,7 +28,7 @@ jobs:
               SLACK_USERNAME: LIU SHIYU
               SLACK_TITLE: Message
               SLACK_MESSAGE: |
-                *NAME:*123456
+                *NAME:*1234567
                 *ID:*123456
                 *xxx:*xxx
                 github:https://github.com/${{ github.repository }}/tree/v1.0
