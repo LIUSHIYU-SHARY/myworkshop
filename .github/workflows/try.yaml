@@ -59,17 +59,18 @@ jobs:
 
           - name: Build and push
             uses: docker/build-push-action@v5
-            id: build-and-push
+            id: sy
             with:
               context: .
               push: true
-              tags: liushiyu625/httpd:TESTqa
+              tags: |
+                liushiyu625/httpd:TESTqa
               
           - name: Sign image with a key
             run: |
               cosign sign --yes --key env://COSIGN_PRIVATE_KEY "${TAGS}"
             env:
-              TAGS: ${{ steps.build-and-push.outputs.tags }}
+              TAGS: ${{ steps.sy.outputs.tags }}
               COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
               COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
               
