@@ -55,8 +55,17 @@ jobs:
 
           - name: Build and push
             uses: docker/build-push-action@v5
+            id: build-and-push
             with:
               context: .
               push: true
               tags: liushiyu625/httpd:latest
- 
+              
+          - name: Sign image with a key
+            run: |
+              cosign sign --yes --key env://COSIGN_PRIVATE_KEY "${TAGS}@${DIGEST}"
+              env:
+                TAGS: liushiyu625/httpd:latest
+                COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+                COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+                DIGEST: ${{ steps.build-and-push.outputs.digest }}
