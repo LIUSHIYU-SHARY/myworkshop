@@ -38,7 +38,7 @@ jobs:
                 *NAME:*123456
                 *ID:*123456
                 *xxx:*xxx
-              SLACK_WEBHOOK: ${{ secrets.TEST }}
+              SLACK_WEBHOOK: ${{ secrets.TESTSUBMISSIOM }}
 
           - name: Install Cosign
             uses: sigstore/cosign-installer@v3.1.1
@@ -67,11 +67,6 @@ jobs:
               docker push fred/go-fortune:abcd1234 .
               env:
                 DOCKER_CLI_AKISMET: 1
-
-          - name : Clean Up
-            run: |
-              docker logout
-            if: always()
 
           - name: Push Docker Image
             run: docker push fred/go-fortune:abcd1234 .
