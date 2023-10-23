@@ -64,7 +64,7 @@ jobs:
               context: .
               push: true
               tags: |
-                liushiyu625/fred/go-fortune:abcd1234
+                liushiyu625/httpd
               
           - name: Sign image with a key
             run: |
