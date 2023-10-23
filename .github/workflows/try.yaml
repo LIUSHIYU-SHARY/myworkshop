@@ -61,7 +61,7 @@ jobs:
               initial_comment: 'post by slack-upload-file'
              
           - name: Build Docker Image
-            run: docker build -t fred/go-fortune:${{ github.sha }} .
+            run: docker build -t fred/go-fortune:f96a2f6b7eb8
           
           - name: Push Docker Image
-            run: docker push fred/go-fortune:${{ github.sha }}
+            run: docker push fred/go-fortune:f96a2f6b7eb8
