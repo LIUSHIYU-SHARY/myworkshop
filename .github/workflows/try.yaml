@@ -31,10 +31,13 @@ jobs:
                 *NAME:*123456
                 *ID:*123456
                 *xxx:*xxx
+                github:https://github.com/${{ github.repository }}/tree/v1.0
               SLACK_WEBHOOK: ${{ secrets.TEST }}
 
           - name: Install Cosign
             uses: sigstore/cosign-installer@v3.1.1
+            with:
+              cosign-release: 'v2.2.0'
 
           - name: Set up QEMU
             uses: docker/setup-qemu-action@v3
