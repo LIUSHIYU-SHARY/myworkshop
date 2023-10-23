@@ -38,9 +38,10 @@ jobs:
                 *NAME:*123456
                 *ID:*123456
                 *xxx:*xxx
-              SLACK_WEBHOOK: ${{ secrets.TEST }}
+              SLACK_WEBHOOK: ${{ secrets.SY }}
 
-          
+          - name: Install Cosign
+            uses: sigstore/cosign-installer@v3.1.1
 
           - name: Set up QEMU
             uses: docker/setup-qemu-action@v3
@@ -58,3 +59,9 @@ jobs:
               file_name: 'text.txt'
               title: 'title of file'
               initial_comment: 'post by slack-upload-file'
+             
+          - name: Build and push container
+            uses: docker/build-push-action@v5
+            with:
+              push: true
+              tags: user/sy
