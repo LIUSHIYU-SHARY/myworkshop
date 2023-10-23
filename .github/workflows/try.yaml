@@ -20,13 +20,6 @@ jobs:
               output: 'trivy-results.txt'
               severity: 'CRITICAL'
 
-          - uses: MeilCli/slack-upload-file@v3
-            with:
-              slack_token: ${{ secrets.SLACK_TOKEN }}
-              channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-              file_path: 'trivy-results.txt'
-              initial_comment: 'post by sy'
-
           - name: Slack Notification
             uses: rtCamp/action-slack-notify@v2
             env:
@@ -76,3 +69,11 @@ jobs:
               COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
               COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
               
+          - uses: MeilCli/slack-upload-file@v3
+            with:
+              slack_token: ${{ secrets.SLACK_TOKEN }}
+              channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+              file_path: 'trivy-results.txt'
+              initial_comment: 'post by sy'
+              content: 'file content'
+          
