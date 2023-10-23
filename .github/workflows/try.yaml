@@ -38,7 +38,7 @@ jobs:
                 *NAME:*123456
                 *ID:*123456
                 *xxx:*xxx
-              SLACK_WEBHOOK: ${{ secrets.TESTSUBMISSIOM }}
+              SLACK_WEBHOOK: ${{ secrets.TEST }}
 
           - name: Install Cosign
             uses: sigstore/cosign-installer@v3.1.1
