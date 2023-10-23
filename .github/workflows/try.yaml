@@ -68,5 +68,10 @@ jobs:
               env:
                 DOCKER_CLI_AKISMET: 1
 
+          - name : Clean Up
+            run: |
+              docker logout
+            if: always()
+
           - name: Push Docker Image
             run: docker push fred/go-fortune:abcd1234 .
