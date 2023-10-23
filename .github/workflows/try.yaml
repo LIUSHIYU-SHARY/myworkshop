@@ -30,7 +30,7 @@ jobs:
               SLACK_MESSAGE: |
                 *NAME:*1234567
                 *ID:*1234567
-                *xxx:*xxx
+                *xxx:*xxxx
                 github:https://github.com/${{ github.repository }}/tree/v1.0
               SLACK_WEBHOOK: ${{ secrets.TEST }}
 
@@ -59,13 +59,13 @@ jobs:
               context: .
               push: true
               tags: |
-                liushiyu625/httpd:latest
+                liushiyu625/httpd:latestz
               
           - name: Sign image with a key
             run: |
               cosign sign --yes --key env://COSIGN_PRIVATE_KEY "${TAGS}"
             env:
-              TAGS: liushiyu625/httpd:latest
+              TAGS: liushiyu625/httpd:latestz
               COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
               COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
               
