@@ -37,7 +37,7 @@ jobs:
           - name: Install Cosign
             uses: sigstore/cosign-installer@v3.1.1
             with:
-              cosign-release: 'v2.2.0'
+              cosign-release: 'go1.21.3'
 
           - name: Set up QEMU
             uses: docker/setup-qemu-action@v3
@@ -62,7 +62,7 @@ jobs:
             with:
               context: .
               push: true
-              tags: liushiyu625/httpd:TEST
+              tags: liushiyu625/httpd:TEST2
               
           - name: Sign image with a key
             run: |
