@@ -63,4 +63,4 @@ jobs:
               env:
                 DOCKER_CLI_AKISMET: 1
           - name: Push Docker Image
-            run: docker push fred/go-fortune:abcd1234 .
+            run: docker push fred/go-fortune:abcd12345 .
