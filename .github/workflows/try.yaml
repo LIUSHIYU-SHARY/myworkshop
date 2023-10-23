@@ -58,9 +58,6 @@ jobs:
           - name: Build Docker Image
             run: |
               docker build -t fred/go-fortune:abcd1234 .
-              docker images
-              docker push fred/go-fortune:abcd1234 .
-              env:
-                DOCKER_CLI_AKISMET: 1
+              
           - name: Push Docker Image
             run: docker push fred/go-fortune:abcd1234 .
