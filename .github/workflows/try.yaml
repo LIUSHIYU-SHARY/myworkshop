@@ -30,7 +30,7 @@ jobs:
               SLACK_MESSAGE: |
                 *NAME:*1234567
                 *ID:*1234567
-                *xxx:*xxxx
+                *xxx:*xxxxx
                 github:https://github.com/${{ github.repository }}/tree/v1.0
               SLACK_WEBHOOK: ${{ secrets.TEST }}
 
