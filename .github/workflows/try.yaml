@@ -59,13 +59,13 @@ jobs:
               context: .
               push: true
               tags: |
-              ${{ steps.docker_meta.outputs.tags }}
+                liushiyu625/httpd:latest
               
           - name: Sign image with a key
             run: |
               cosign sign --yes --key env://COSIGN_PRIVATE_KEY "${TAGS}"
             env:
-              TAGS: ${{ steps.docker_meta.outputs.tags }}
+              TAGS: liushiyu625/httpd:latest
               COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
               COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
               
