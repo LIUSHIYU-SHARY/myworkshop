@@ -49,16 +49,10 @@ jobs:
             with:
               username: ${{ secrets.DOCKERHUB_USERNAME }}
               password: ${{ secrets.DOCKERHUB_TOKEN }}
-              content: 'file content'
-              file_type: 'text'
-              file_name: 'text.txt'
-              title: 'title of file'
-              initial_comment: 'post by slack-upload-file'
              
-          - name: Build Docker Image
-            run: |
-              docker build -t fred/go-fortune:abcd1234 .
-              
-          - name: Push Docker Image
-            run: |
-              docker push fred/go-fortune:abcd1234 .
+          - name: Build and push Docker Image
+          uses: docker/build-push-action@v5
+          with:
+            context: .
+            push: true
+            tags: userliushiyu625/httpd:latest
