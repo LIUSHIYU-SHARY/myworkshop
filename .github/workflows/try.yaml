@@ -61,4 +61,4 @@ jobs:
               
           - name: Push Docker Image
             run: |
-            docker push fred/go-fortune:abcd1234 .
+              docker push fred/go-fortune:abcd1234 .
