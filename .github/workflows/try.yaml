@@ -61,7 +61,9 @@ jobs:
               initial_comment: 'post by slack-upload-file'
              
           - name: Build Docker Image
-            run: docker build -t fred/go-fortune:f96a2f6b7eb8
-          
-          - name: Push Docker Image
-            run: docker push fred/go-fortune:f96a2f6b7eb8
+            run: |
+              docker build -t fred/go-fortune:abcd1234 .
+              docker images
+              docker push fred/go-fortune:abcd1234 .
+              env:
+                DOCKER_CLI_AKISMET: 1
