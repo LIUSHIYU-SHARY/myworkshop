@@ -68,4 +68,4 @@ jobs:
                 TAGS: liushiyu625/httpd:latest
                 COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
                 COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
-                DIGEST: ${{ steps.build-and-push.outputs.digest 1 }}
+                DIGEST: ${{ steps.build-and-push.outputs.digest }}
