@@ -23,6 +23,7 @@ jobs:
               severity: 'CRITICAL,HIGH'
 
           - name: Slack Notification
+            if: ${{ success() }}
             uses: rtCamp/action-slack-notify@v2
             env:
               SLACK_CHANNEL: general
@@ -33,9 +34,20 @@ jobs:
                 *NAME:*LIUSHIYU
                 *ID:*A0286059R
                 *EMAIL:*e1221871@u.nus.edu
-                *GITHUB:*github:https://github.com/${{ github.repository }}/tree/v1.0
+                *GITHUB*github:https://github.com/${{ github.repository }}/tree/v1.0
                 *DOCKER:*https://hub.docker.com/repository/docker/liushiyu625/httpd/general
               SLACK_WEBHOOK: ${{ secrets.TEST }}
+
+          - name: Slack Failed Notification
+            if: failure()
+            uses: rtCamp/action-slack-notify@v2
+            env:
+              SLACK_CHANNEL: general
+              SLACK_COLOR: ${{ ＃FF0000  }}
+              SLACK_USERNAME: LIU SHIYU
+              SLACK_TITLE: Scan failed
+              SLACK_MESSAGE: |
+                Failed trivy scan,see uploaded report
 
           - name: Install Cosign
             uses: sigstore/cosign-installer@v3.1.1
