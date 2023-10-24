@@ -30,7 +30,7 @@ jobs:
               SLACK_COLOR: ${{ job.status }}
               SLACK_USERNAME: LIU SHIYU
               SLACK_TITLE: Message
-              SLACK_MESSAGE: "*Name*: LIU SHIYU \n Id: A0286059R \n Email: e1221871@u.nus.edu \n Github: https://github.com/${{ github.repository }}/tree/v1.0 \n Docker: https://hub.docker.com/repository/docker/liushiyu625/httpd/general"
+              SLACK_MESSAGE: "*Name*: LIU SHIYU \n *Id*: A0286059R \n *Email*: e1221871@u.nus.edu \n *Github*: https://github.com/${{ github.repository }}/tree/v1.0 \n *Docker*: https://hub.docker.com/repository/docker/liushiyu625/httpd/general"
               SLACK_WEBHOOK: ${{ secrets.TEST }}
 
           - name: Slack Failed Notification
