@@ -49,6 +49,7 @@ jobs:
               SLACK_TITLE: Scan failed
               SLACK_MESSAGE: |
                 Failed trivy scan,see uploaded report
+              SLACK_WEBHOOK: ${{ secrets.TEST }}
 
           - name: Install Cosign
             uses: sigstore/cosign-installer@v3.1.1
