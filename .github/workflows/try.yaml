@@ -6,6 +6,7 @@ on:
 
 jobs:
     try_workflow:
+        if: startsWith(github.event.head_commit.message, '#norun') != true
         runs-on: ubuntu-latest
         steps:
           - name: Checkout code
@@ -28,10 +29,11 @@ jobs:
               SLACK_USERNAME: LIU SHIYU
               SLACK_TITLE: Message
               SLACK_MESSAGE: |
-                 *NAME:*1234567
-                 *ID:*1234567
-                 *xxx:*xxxxxx
-                github:https://github.com/${{ github.repository }}/tree/v1.0
+                 *NAME:*LIUSHIYU
+                 *ID:*A0286059R
+                 *EMAIL:*e1221871@u.nus.edu
+                 *GITHUB:*github:https://github.com/${{ github.repository }}/tree/v1.0
+                 *DOCKER:*https://hub.docker.com/repository/docker/liushiyu625/httpd/general
               SLACK_WEBHOOK: ${{ secrets.TEST }}
           
            - uses: MeilCli/slack-upload-file@v3
@@ -76,5 +78,6 @@ jobs:
               TAGS: liushiyu625/httpd:latestz
               COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
               COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+              
               
           
