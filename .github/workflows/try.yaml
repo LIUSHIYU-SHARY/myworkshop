@@ -43,7 +43,7 @@ jobs:
             uses: rtCamp/action-slack-notify@v2
             env:
               SLACK_CHANNEL: general
-              SLACK_COLOR: ${{ ＃FF0000  }}
+              SLACK_COLOR: ${{ #FF0000 }}
               SLACK_USERNAME: LIU SHIYU
               SLACK_TITLE: Scan failed
               SLACK_MESSAGE: |
