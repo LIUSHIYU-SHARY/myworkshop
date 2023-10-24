@@ -28,11 +28,19 @@ jobs:
               SLACK_USERNAME: LIU SHIYU
               SLACK_TITLE: Message
               SLACK_MESSAGE: |
-                *NAME:*1234567
-                *ID:*1234567
-                *xxx:*xxxxxx
+                 *NAME:*1234567
+                 *ID:*1234567
+                 *xxx:*xxxxxx
                 github:https://github.com/${{ github.repository }}/tree/v1.0
               SLACK_WEBHOOK: ${{ secrets.TEST }}
+          
+           - uses: MeilCli/slack-upload-file@v3
+             with:
+              slack_token: ${{ secrets.SLACK_TOKEN }}
+              channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+              file_path: 'trivy-results.txt'
+              initial_comment: 'post by sy'
+              content: 'file content'
 
           - name: Install Cosign
             uses: sigstore/cosign-installer@v3.1.1
@@ -69,11 +77,4 @@ jobs:
               COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
               COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
               
-          - uses: MeilCli/slack-upload-file@v3
-            with:
-              slack_token: ${{ secrets.SLACK_TOKEN }}
-              channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-              file_path: 'trivy-results.txt'
-              initial_comment: 'post by sy'
-              content: 'file content'
           
