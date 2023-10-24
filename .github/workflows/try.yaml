@@ -20,7 +20,7 @@ jobs:
               ignore-unfixed: true
               format: 'table'
               output: 'trivy-results.txt'
-              severity: 'CRITICAL'
+              severity: 'CRITICAL,HIGH'
 
           - name: Slack Notification
             uses: rtCamp/action-slack-notify@v2
@@ -30,10 +30,11 @@ jobs:
               SLACK_USERNAME: LIU SHIYU
               SLACK_TITLE: Message
               SLACK_MESSAGE: |
-                *NAME:*1234567
-                *ID:*1234567
-                *xxx:*xxxxxx
-                github:https://github.com/${{ github.repository }}/tree/v1.0
+                *NAME:*LIUSHIYU
+                *ID:*A0286059R
+                *EMAIL:*e1221871@u.nus.edu
+                *GITHUB:*github:https://github.com/${{ github.repository }}/tree/v1.0
+                *DOCKER:*https://hub.docker.com/repository/docker/liushiyu625/httpd/general
               SLACK_WEBHOOK: ${{ secrets.TEST }}
 
           - name: Install Cosign
