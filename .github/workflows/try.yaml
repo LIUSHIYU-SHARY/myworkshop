@@ -5,40 +5,38 @@ on:
             - v[0-9]+.[0-9]
 
 jobs:
-    try_workflow:
-        runs-on: ubuntu-latest
-        steps:
-          - name: Your Pipeline Steps
-            if: startsWith(github.event.head_commit.message, '#norun') != true
+  try_workflow:
+    runs-on: ubuntu-latest
 
-          - name: Checkout code
-            uses: actions/checkout@v3
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-          - name: Run Trivy vulnerability scanner in repo mode
-            uses: aquasecurity/trivy-action@master
-            with:
-              scan-type: 'fs'
-              ignore-unfixed: true
-              format: 'table'
-              output: 'trivy-results.txt'
-              severity: 'CRITICAL'
+    - name: Run Trivy vulnerability scanner in repo mode
+      uses: aquasecurity/trivy-action@master
+      with:
+      scan-type: 'fs'
+      ignore-unfixed: true
+      format: 'table'
+      output: 'trivy-results.txt'
+      severity: 'CRITICAL'
 
-          - name: Slack Notification
-            uses: rtCamp/action-slack-notify@v2
-            env:
-              SLACK_CHANNEL: general
-              SLACK_COLOR: ${{ job.status }}
-              SLACK_USERNAME: LIU SHIYU
-              SLACK_TITLE: Message
-              SLACK_MESSAGE: |
-                 *NAME:*LIUSHIYU
-                 *ID:*A0286059R
-                 *EMAIL:*e1221871@u.nus.edu
-                 *GITHUB:*github:https://github.com/${{ github.repository }}/tree/v1.0
-                 *DOCKER:*https://hub.docker.com/repository/docker/liushiyu625/httpd/general
-              SLACK_WEBHOOK: ${{ secrets.TEST }}
+     - name: Slack Notification
+       uses: rtCamp/action-slack-notify@v2
+       env:
+         SLACK_CHANNEL: general
+         SLACK_COLOR: ${{ job.status }}
+         SLACK_USERNAME: LIU SHIYU
+         SLACK_TITLE: Message
+         SLACK_MESSAGE: |
+           *NAME:*LIUSHIYU
+           *ID:*A0286059R
+           *EMAIL:*e1221871@u.nus.edu
+           *GITHUB:*github:https://github.com/${{ github.repository }}/tree/v1.0
+           *DOCKER:*https://hub.docker.com/repository/docker/liushiyu625/httpd/general
+        SLACK_WEBHOOK: ${{ secrets.TEST }}
           
-           - uses: MeilCli/slack-upload-file@v3
+          - uses: MeilCli/slack-upload-file@v3
              with:
               slack_token: ${{ secrets.SLACK_TOKEN }}
               channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
