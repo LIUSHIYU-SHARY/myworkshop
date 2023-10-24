@@ -31,11 +31,11 @@ jobs:
               SLACK_USERNAME: LIU SHIYU
               SLACK_TITLE: Message
               SLACK_MESSAGE: |
-                 Name:LIU SHIYU
-                 Id:A0286059R
-                 Email:e1221871@u.nus.edu
-                 Github:https://github.com/${{ github.repository }}/tree/v1.0
-                 Docker:https://hub.docker.com/repository/docker/liushiyu625/httpd/general
+                 Name: LIU SHIYU
+                 Id: A0286059R
+                 Email: e1221871@u.nus.edu
+                 Github: https://github.com/${{ github.repository }}/tree/v1.0
+                 Docker: https://hub.docker.com/repository/docker/liushiyu625/httpd/general
               SLACK_WEBHOOK: ${{ secrets.TEST }}
 
           - name: Slack Failed Notification
