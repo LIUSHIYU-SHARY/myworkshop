@@ -34,7 +34,7 @@ jobs:
                 *NAME:*LIUSHIYU
                 *ID:*A0286059R
                 *EMAIL:*e1221871@u.nus.edu
-                *GITHUB*github:https://github.com/${{ github.repository }}/tree/v1.0
+                *GITHUB:*github:https://github.com/${{ github.repository }}/tree/v1.0
                 *DOCKER:*https://hub.docker.com/repository/docker/liushiyu625/httpd/general
               SLACK_WEBHOOK: ${{ secrets.TEST }}
 
@@ -91,5 +91,5 @@ jobs:
               file_path: 'trivy-results.txt'
               initial_comment: 'post by sy'
               content: 'file content'
-              
+
               
