@@ -6,9 +6,18 @@ on:
 
 jobs:
     try_workflow:
-        if: startsWith(github.event.head_commit.message, '#norun') != true
         runs-on: ubuntu-latest
         steps:
+          - name: Check Commit Message
+            run: |
+            if [[ "${{ github.event.head_commit.message }}" == \#norun* ]]; then
+            echo "Commit message starts with #norun. Skipping the pipeline."
+            exit 0
+            fi
+    
+          - name: Your Pipeline Steps
+            if: startsWith(github.event.head_commit.message, '#norun') != true
+
           - name: Checkout code
             uses: actions/checkout@v3
 
