@@ -20,23 +20,24 @@ jobs:
               ignore-unfixed: true
               format: 'table'
               output: 'trivy-results.txt'
-              severity: 'HIGH'
+              severity: 'CRITICAL,HIGH'
+              exit-code: '1'
 
-          - name: Slack Notification
-            if: ${{ success() }}
-            uses: rtCamp/action-slack-notify@v2
-            env:
-              SLACK_CHANNEL: general
-              SLACK_COLOR: ${{ job.status }}
-              SLACK_USERNAME: LIU SHIYU
-              SLACK_TITLE: Message
-              SLACK_MESSAGE: |
-                *NAME:*LIUSHIYU
-                *ID:*A0286059R
-                *EMAIL:*e1221871@u.nus.edu
-                *GITHUB:*github:https://github.com/${{ github.repository }}/tree/v1.0
-                *DOCKER:*https://hub.docker.com/repository/docker/liushiyu625/httpd/general
-              SLACK_WEBHOOK: ${{ secrets.TEST }}
+          #- name: Slack Notification 
+          # if: ${{ success() }}
+          # uses: rtCamp/action-slack-notify@v2
+          # env:
+          #   SLACK_CHANNEL: general
+           #   SLACK_COLOR: ${{ job.status }}
+          #   SLACK_USERNAME: LIU SHIYU
+          #   SLACK_TITLE: Message
+          #  SLACK_MESSAGE: |
+          #     *NAME:*LIUSHIYU
+          #     *ID:*A0286059R
+          #     *EMAIL:*e1221871@u.nus.edu
+          #     *GITHUB:*github:https://github.com/${{ github.repository }}/tree/v1.0
+          #     *DOCKER:*https://hub.docker.com/repository/docker/liushiyu625/httpd/general
+          #  SLACK_WEBHOOK: ${{ secrets.TEST }}
 
           - name: Slack Failed Notification
             if: failure()
