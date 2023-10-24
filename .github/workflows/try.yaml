@@ -1,3 +1,4 @@
+
 name: try
 on:
     push:
@@ -30,11 +31,11 @@ jobs:
               SLACK_USERNAME: LIU SHIYU
               SLACK_TITLE: Message
               SLACK_MESSAGE: |
-                  *NAME: *LIUSHIYU 
-                  *ID: *A0286059R
-                  *EMAIL: *e1221871@u.nus.edu
-                  *GITHUB: *https://github.com/${{ github.repository }}/tree/v1.0
-                  *DOCKER: *https://hub.docker.com/repository/docker/liushiyu625/httpd/general
+                 *NAME:*LIUSHIYU
+                 *ID:*A0286059R
+                 *EMAIL:*e1221871@u.nus.edu
+                 *GITHUB:*https://github.com/${{ github.repository }}/tree/v1.0
+                 *DOCKER:*https://hub.docker.com/repository/docker/liushiyu625/httpd/general
               SLACK_WEBHOOK: ${{ secrets.TEST }}
 
           - name: Slack Failed Notification
@@ -92,10 +93,6 @@ jobs:
               file_path: 'trivy-results.txt'
               initial_comment: 'post by sy'
               content: 'file content'
-
-
-
-    
 
 
 
